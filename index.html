@@ -1,0 +1,374 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight:300;
+		font-size:18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1000px;
+	}	
+	h1 {
+		font-weight:300;
+	}
+	
+	.disclaimerbox {
+		background-color: #eee;		
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.rounded {
+		border: 0px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+	
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		        0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		        5px 5px 0 0px #fff, /* The second layer */
+		        5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		        10px 10px 0 0px #fff, /* The third layer */
+		        10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		        15px 15px 0 0px #fff, /* The fourth layer */
+		        15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		        20px 20px 0 0px #fff, /* The fifth layer */
+		        20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		        25px 25px 0 0px #fff, /* The fifth layer */
+		        25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		        0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		        0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		        5px 5px 0 0px #fff, /* The second layer */
+		        5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		        10px 10px 0 0px #fff, /* The third layer */
+		        10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+	
+	.vert-cent {
+		position: relative;
+	    top: 50%;
+	    transform: translateY(-50%);
+	}
+	
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+</style>
+
+<html>
+  <head>
+		<title>JIFF: Jointly-aligned Implicit Face Function for High Quality Single View Clothed Human Reconstruction</title>
+  </head>
+
+  <body>
+    <br>
+          <center>
+          	<span style="font-size:40px">JIFF: Jointly-aligned Implicit Face Function for</span><br>
+          	<span style="font-size:40px">High Quality Single View Clothed Human Reconstruction</span><br>
+	  		  <table align=center width=1000px>
+	  			  <tr>
+	  	              <td align=center width=80px>
+	  					<center>
+	  						<span style="font-size:24px"><a href="https://yukangcao.github.io/CV_Yukang_Cao.pdf">Yukang Cao<sup>1</sup></a></span>
+		  		  		</center>
+		  		  	  </td>
+	  	              <td align=center width=80px>
+	  					<center>
+	  						<span style="font-size:24px"><a href="https://guanyingc.github.io/">Guanying Chen<sup>2</sup></a></span>
+		  		  		</center>
+		  		  	  </td>
+	  	              <td align=center width=80px>
+	  					<center>
+	  						<span style="font-size:24px"><a href="https://www.kaihan.org/">Kai Han<sup>1</sup></a></span>
+		  		  		</center>
+		  		  	  </td>
+	  	              <td align=center width=80px>
+	  					<center>
+	  						<span style="font-size:24px"><a href="https://i.cs.hku.hk/~kykwong/people.html">Wenqi Yang<sup>1</sup></a></span>
+		  		  		</center>
+		  		  	  </td>
+	  	              <td align=center width=100px>
+	  					<center>
+	  						<span style="font-size:24px"><a href="https://i.cs.hku.hk/~kykwong/">Kwan-Yee K. Wong<sup>1</sup></a></span>
+		  		  		</center>
+		  		  	  </td>
+			  </table>
+          	<span style="font-size:22px"><sup>1</sup>The University of Hong Kong, <sup>2</sup>The Future Network of Intelligence Institute (FNii), CUHK-Shenzhen</span>
+
+	  		  <table align=center width=600px>
+	  			  <tr>
+	  	              <td align=center width=300px>
+	  					<center>
+	  						<span style="font-size:22px"><a href=‘https://github.com/yukangcao/JIFF’> Code[Coming soon]</a></span>
+		  		  		</center>
+		  		  	  </td>
+	  	              <td align=center width=300px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://i.cs.hku.hk/~kykwong/publications/ycao_cvpr0222.pdf'> CVPR 2022 [Paper]</a></span>
+		  		  		</center>
+		  		  	  </td>
+			  </table>
+          </center>
+  		  <br>
+
+  		  <table align=center width=800px>
+  			  <tr>
+  	              <td width=400px>
+  					<center>
+                            <div class = "video">
+                              <video src="./index_files/webpage_mp4.mp4" style="max-width:100%;" playsinline autoplay loop preload muted></video>
+                            </div>
+					</center>
+  	              </td>
+                </tr>
+  	              <td width=400px>
+  					<center>
+  	                	<!-- <span style="font-size:14px"><i>Example  input  grayscale  photos  and  output  colorizations  from  our  algorithm. These examples are cases where our model works especially well. For randomly selected examples, see the <a href="#perform_comp"><b>Performance comparisons</b></a> section below.</i> -->
+					</center>
+  	              </td>
+  		  </table>
+
+  		  <br>
+		  <hr>
+
+  		  <table align=center width=900px>
+	  		  <center><h1>Abstract</h1></center>
+					This paper addresses the problem of single view 3D human reconstruction. Recent implicit function based methods have shown impressive results, but they fail to recover fine face details in their reconstructions. This largely degrades user experience in applications like 3D telepresence. In this paper, we focus on improving the quality of face in the reconstruction and propose a novel Jointly-aligned Implicit Face Function (JIFF) that combines the merits of the implicit function based approach and model based approach. We employ a 3D morphable face model as our shape prior and compute space-aligned 3D features that capture detailed face geometry information. Such spacealigned 3D features are combined with pixel-aligned 2D features to jointly predict an implicit face function for high quality face reconstruction. We further extend our pipeline and introduce a coarse-to-fine architecture to predict high quality texture for our detailed face model. Extensive evaluations have been carried out on public datasets and our proposed JIFF has demonstrates superior performance (both quantitatively and qualitatively) over existing state-of-thearts
+  		  <br>
+		  <hr>
+
+ 		<table align=center width=900px>
+    		<center><h1>Video will be released soon</h1></center><!-- 
+    		<center><iframe width="800" height="450" src="https://www.youtube.com/embed/FFL1pZ7z9nI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></center> -->
+		</table>
+		<hr>
+
+		<table align=center>
+    		<center><h1>Method</h1></center>
+    		<tr>
+        		<td align=center width=1000px>
+            		<img class="round" style="width:1000px" src="./index_files/cvpr2022_framework_1.png"/></img>
+        		</td>
+   			</tr>
+		</table>
+		<hr>
+
+ 		<center><h1>Single-View Reconstruction</h1></center>
+                <table align=center width=1000px>
+                    <tr>
+                        <td width=1000px>
+                          <center>
+
+                            <div class = "video">
+                              <video src="./index_files/webpage_mp4_full.mp4" style="max-width:100%;" playsinline autoplay loop preload muted></video>
+                            </div>
+                        </center>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <hr>
+
+ 		</table>
+  		<table align=center width=1000px>
+  		<br>
+  		<br>
+  			  <!-- <tr> -->
+  	              <td align=center width=1000px>
+  					<center>
+						  <td><img class="round" style="width:1000px" src="./index_files/cvpr2022_qualitative.png"/></a>
+						  </td>
+	  		  		</center>
+	  		  		</td>
+			  <!-- </tr> -->
+		  </table>
+
+		<br>
+  		<table align=center width=1000px>
+  		<br>
+  		<br>
+  	              <td align=center width=500px>
+  					<center>
+						  <td><img class="round" style="width:500px" src="./index_files/cvpr2022_error_color.png"/></a>
+						  </td>
+						  <td><img class="round" style="width:500px" src="./index_files/cvpr2022_error_color_2.png"/></a>
+						  </td>
+	  		  		</center>
+	  		  		</td>
+		  </table>
+
+		<br>
+		<table align=center width=1000px>
+  		<br>
+  		<br>
+  			  <!-- <tr> -->
+  	              <td align=center width=1000px>
+  					<center>
+						  <td><img class="round" style="width:1000px" src="./index_files/cvpr2022_quantitative.png"/></a>
+						  </td>
+	  		  		</center>
+	  		  		</td>
+			  <!-- </tr> -->
+		  </table>
+
+      	  <br>
+		  <hr>
+
+  		  <table align=center width=900px>
+	 		<center><h1>Paper</h1></center>
+  			  <tr>
+				  <td><a href="https://i.cs.hku.hk/~kykwong/publications/ycao_cvpr0222.pdf"><img style="height:200px" src="./index_files/cvpr2022_paper.png"/></a></td>
+				  <td><span style="font-size:14pt">Y. Cao, G. Chen, K. Han, W. Yang, K.-Y. K. Wong.<br>
+				  <b>JIFF: Jointly-aligned Implicit Face Function for High Quality Single View Clothed Human Reconstruction.</b><br>
+				  In CVPR, 2022.<br><br>
+				  <a href="https://i.cs.hku.hk/~kykwong/publications/ycao_cvpr0222.pdf">[pdf]</a> &nbsp; &nbsp;
+                    <a href="./index_files/bibtex_cvpr2022_jiff.txt">[Bibtex]</a>
+				  </td>
+  	              </td>
+              </tr>
+  		  </table>
+		  <br>
+
+		  <!-- <table align=center width=600px>
+			  <tr>
+				  <td><span style="font-size:24pt"><center>
+				  	<a href="./index_files/bibtex_cvpr2017_splitbrain.txt">[Bibtex]</a>
+  	              </center></td>
+              </tr>
+  		  </table>
+
+  		  <br>
+		  <hr>
+
+
+  		  <table align=center width=200 px>
+	 		<center><h1>Poster</h1></center>
+  			  <tr>
+				  <td><a href="./index_files/poster_cvpr.pdf"><img class="paper-big" style="width:600px" src="./index_files/poster_teaser.png"/></a></td>
+              </tr>
+  		  </table>
+		  <br>
+
+		  <table align=center width=600px>
+			  <tr>
+				  <td><span style="font-size:24pt"><center>
+				  	<a href="./index_files/poster_cvpr.pdf">[PDF]</a>
+  	              </center></td>
+              </tr>
+  		  </table> -->
+
+  		  <br>
+		  <hr>
+
+		  <center>
+    		<h2>Code and models will be available at <a href="https://github.com/yukangcao">Github</a>!</h2>
+		  </center>
+		  <hr>
+		  <table align=center width=900px>
+			  <center><h1>BibTex</h1></center>
+			        <!-- <pre style="background-color: #EBECE4;" > -->
+			        <pre style="background-color: #e2e2e2; border: 1px dotted #818181; padding: 5px;">
+			        <span class="inner-pre" style="font-size: 14px">
+@inproceedings{cao2022jiff,
+author    = {Cao, Yukang. and Chen, Guanying. and Han, Kai. and Yang, Wwenqi. and Wong, Kwan-Yee K.},
+title     = {JIFF: Jointly-aligned Implicit Face Function for High Quality Single View Clothed Human Reconstruction},
+booktitle = {IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+year      = {2022}
+}
+			        </span>
+			        </pre>
+		  </table>
+		  <hr>
+
+  		  <!-- <br> -->
+		  <!-- <hr> -->
+		  	
+  		  <table align=center width=1000px>
+  			  <tr>
+  	              <td width=400px>
+  					<left>
+	  		  <center><h1>Acknowledgements</h1></center>
+	  		  This work was partially supported by Hong Kong RGC GRF grant (project# 17203119), the National Key R&D Program of China (No.2018YFB1800800), and the Basic Research Project No. HZQB-KCZYZ2021067 of Hetao Shenzhen-HK S&T Cooperation Zone. We thank Yuanlu Xu for ARCH and ARCH++ results
+			</left>
+		</td>
+			 </tr>
+		</table>
+
+		<br><br>
+<p style="text-align:center;font-size:16px;">
+    Webpage template borrowed from <a href="https://richzhang.github.io/splitbrainauto/">Split-Brain Autoencoders, CVPR 2017</a>.
+</p>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75863369-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+              
+</body>
+</html>
+ 

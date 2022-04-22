@@ -1,0 +1,6 @@
+@inproceedings{cao2022jiff,
+  title={JIFF: Jointly-aligned Implicit Face Function for High Quality Single View Clothed Human Reconstruction},
+  author={Cao, Yukang. and Chen, Guanying. and Han, Kai. and Yang, Wwenqi. and Wong, Kwan-Yee K.},
+  booktitle={CVPR},
+  year={2022}
+}
