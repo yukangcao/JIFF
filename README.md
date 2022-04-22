@@ -4,4 +4,4 @@
 [Yukang Cao](https://yukangcao.github.io/CV_Yukang_Cao.pdf), [Guanying Chen](https://guanyingc.github.io/), [Kai Han](http://www.hankai.org/), Wenqi Yang, [Kwan-Yee K. Wong](http://i.cs.hku.hk/~kykwong/)
 <br>
 
-## Code and models will be available
+## Code and models will be released here
