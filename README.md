@@ -28,8 +28,8 @@ Work-done:
  - [x] Test jiff estimated geometry and texture
 ## JIFF reconstruction examples
 Our method further improve the face geometry and texture. It also successfully reconstructs the ears.
-<p align="center">
-    <img src='samples/recon_ex.gif' width="1000" >
+<p align="left">
+    <img src='samples/recon_ex.gif' width="800" >
 <!-- ![image](https://github.com/yukangcao/FacePIFu/blob/JIFF/samples/recon_ex.gif) -->
 </p>
 
