@@ -22,14 +22,14 @@ Work-done:
  - [x] Coarse training of texture pipeline (PIFu-Tex)
  - [x] Fine training of texture pipeline with 3DMM priors
  - [x] Training scripts
-- Testing and pretrained models
+- Testing
  - [x] Reconstructed meshes
  - [x] Test PIFu estimated geometry and texture trained with same sampling strategy
  - [x] Test jiff estimated geometry and texture
 ## JIFF reconstruction examples
 Our method further improve the face geometry and texture. It also successfully reconstructs the ears.
 <p align="center">
-    <img src='samples/recon_ex.gif' width="1200" >
+    <img src='samples/recon_ex.gif' width="1000" >
 <!-- ![image](https://github.com/yukangcao/FacePIFu/blob/JIFF/samples/recon_ex.gif) -->
 </p>
 
